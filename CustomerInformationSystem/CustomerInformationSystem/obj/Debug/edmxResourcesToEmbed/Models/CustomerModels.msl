@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CustomerInfoModelStoreContainer" CdmEntityContainer="CustomerInfoEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="CustomerInfoModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CatId" ColumnName="CatId" />
+          <ScalarProperty Name="CatName" ColumnName="CatName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="CustomerInfoModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomarId" ColumnName="CustomarId" />
+          <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerAddesss" ColumnName="CustomerAddesss" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+          <ScalarProperty Name="ContactPersonPosition" ColumnName="ContactPersonPosition" />
+          <ScalarProperty Name="ContactRegion" ColumnName="ContactRegion" />
+          <ScalarProperty Name="CustomerCategory" ColumnName="CustomerCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Designations">
+      <EntityTypeMapping TypeName="CustomerInfoModel.Designation">
+        <MappingFragment StoreEntitySet="Designation">
+          <ScalarProperty Name="DesigId" ColumnName="DesigId" />
+          <ScalarProperty Name="DesigName" ColumnName="DesigName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="CustomerInfoModel.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

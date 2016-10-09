@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CustomerInfoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CatId" />
+    </Key>
+    <Property Name="CatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CatName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Category" FromRole="Category" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomarId" />
+    </Key>
+    <Property Name="CustomarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerAddesss" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPersonPosition" Type="Int32" />
+    <Property Name="ContactRegion" Type="Int32" />
+    <Property Name="CustomerCategory" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Customer_Category" FromRole="Customer" ToRole="Category" />
+    <NavigationProperty Name="Designation" Relationship="Self.FK_Customer_Designation" FromRole="Customer" ToRole="Designation" />
+    <NavigationProperty Name="Region" Relationship="Self.FK_Customer_Region" FromRole="Customer" ToRole="Region" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="DesigId" />
+    </Key>
+    <Property Name="DesigId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesigName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Designation" FromRole="Designation" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="RegId" />
+    </Key>
+    <Property Name="RegId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Region" FromRole="Region" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_Customer_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CatId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CustomerCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Designation">
+    <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designation">
+        <PropertyRef Name="DesigId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="ContactPersonPosition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Region">
+    <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="RegId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="ContactRegion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CustomerInfoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Designations" EntityType="Self.Designation" />
+    <EntitySet Name="Regions" EntityType="Self.Region" />
+    <AssociationSet Name="FK_Customer_Category" Association="Self.FK_Customer_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Designation" Association="Self.FK_Customer_Designation">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Region" Association="Self.FK_Customer_Region">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,99 @@
+﻿@model CustomerInformationSystem.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerAddesss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerAddesss)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPersonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPersonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CatName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CatName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation.DesigName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation.DesigName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region.RegionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region.RegionName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomarId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

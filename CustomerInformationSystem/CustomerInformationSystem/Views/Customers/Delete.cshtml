@@ -1,0 +1,105 @@
+﻿@model CustomerInformationSystem.Models.Customer
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerAddesss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerAddesss)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPersonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPersonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CatName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CatName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation.DesigName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation.DesigName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region.RegionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region.RegionName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

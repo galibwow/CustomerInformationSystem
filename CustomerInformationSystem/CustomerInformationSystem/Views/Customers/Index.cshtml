@@ -1,0 +1,88 @@
+﻿@model IEnumerable<CustomerInformationSystem.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerAddesss)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPersonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CatName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation.DesigName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Region.RegionName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerAddesss)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPersonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CatName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation.DesigName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Region.RegionName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CustomarId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CustomarId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CustomarId })
+        </td>
+    </tr>
+}
+
+</table>
